@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<style>
+    input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.avc{
+    background-image: url('https://cdn.rt.emap.com/wp-content/uploads/sites/4/2010/04/14134947/Lord_s_Herzog_Picture_007_compressed-1.jpg');
+    
+    background-repeat: no-repeat;
+    height: 100%;
+}
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  text-align: center;
+}
+</style>
+<body class="avc"> 
+    
+    <div class="bg-text">
+    <h2 style="text-align: center; font-family: Arial, Helvetica, sans-serif;">Player Prediction</h2>
+    
+  
+    <form action="{{ url_for('predictPlayer')}}" method="post">
+        <label for="fname" style="color: rgb(0, 0, 0);">Name:</label><br>
+        <input type="text" id="fname" name="fname" value="{{name}}"><br>
+        
+
+        <label for="bteam" style="color: rgb(0, 0, 0);">Bowling Team:</label><br>
+        <input type="text" name="bteam" list="bteam"><br>
+        <datalist id="bteam" >
+            <option value="" disabled selected>Select Team</option>
+            <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+            <option value="Mumbai Indians">Mumbai Indians</option>
+            <option value="Chennai Super Kings">Chennai Super Kings</option>
+            <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+            <option value="Delhi Capitals">Delhi Capitals</option>
+            <option value="Kings XI Punjab">Kings XI Punjab</option>
+            <option value="Rajasthan Royals">Rajasthan Royals</option>
+            <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+        </datalist>
+
+        <label for="venue" style="color: rgb(0, 0, 0);">Venue:</label><br>
+        <input type="text" name="venue" list="venue"><br>
+            <datalist id="venue" >
+            <option value="" disabled selected>Select venue</option>
+            <option value="M Chinnaswamy Stadium">M Chinnaswamy Stadium</option>
+            <option value="Punjab Cricket Association Stadium, Mohali">Punjab Cricket Assocation Stadium</option>
+            <option value="Feroz Shah Kotla">Feroz Shah Kotla</option>
+            <option value="Wankhede Stadium">Wankhede Stadium</option>
+            <option value="Eden Gardens">Eden Gardens</option>
+            <option value="Sawai Mansingh Stadium">Sawai Mansingh Stadium</option>
+            <option value="Rajiv Gandhi International Stadium, Uppal">Rajiv Gandhi International Stadium</option>
+            <option value="MA Chidambaram Stadium, Chepauk">MA Chidambaram Stadium</option>
+            <option value="Dr DY Patil Sports Academy">Dr DY Patil Sports Academy</option>
+            <option value="Newlands">Newlands</option>
+            <option value="St George's Park">St George's Park</option>
+            <option value="Kingsmead">Kingsmead</option>
+            <option value="SuperSport Park">SuperSport Park</option>
+            <option value="New Wanderers Stadium">New Wanderers Stadium</option>
+            <option value="Brabourne Stadium">Brabourne Stadium</option>
+            <option value="Sardar Patel Stadium, Motera">Sardar Patel Stadium, Motera</option>
+            <option value="Vidarbha Cricket Association Stadium, Jamtha">Vidarbha Cricket Association Stadium, Jamtha</option>
+            <option value="Himachal Pradesh Cricket Association Stadium">Himachal Pradesh Cricket Association Stadium</option>
+            <option value="Nehru Academy">Nehru Academy</option>
+            <option value="Holkar Cricket Stadium">Holkar Cricket Stadium</option>
+            <option value="Subrata Roy Sahara Stadium">Subrata Roy Sahara Stadium</option>
+            <option value="Shaheed Veer Narayana Singh International Stadium">Shaheed Veer Narayana Singh International Stadium</option>
+            <option value="JSCA International Stadium Complex">JSCA International Stadium Complex</option>
+            <option value="Sheikh Zayed Stadium">Sheikh Zayed Stadium</option>
+            <option value="Sharjah Cricket Stadium">Sharjah Cricket Stadium</option>
+            <option value="Dubai International Cricket Stadium">Dubai International Cricket Stadium</option>
+            <option value="Maharashtra Cricket Assocation Stadium">Maharashtra Cricket Assocation Stadium</option>
+            <option value="Saurashtra Cricket Association Stadium">Saurashtra Cricket Association Stadium</option>
+            </datalist>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+</html>

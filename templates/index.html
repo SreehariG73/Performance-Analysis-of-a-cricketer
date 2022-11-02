@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+    <title>Ipl Insights</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/templatemo-training-studio.css') }}">
+    <style>
+        .logos {
+            height: 130px;
+            width: 150px;
+        }
+        
+        .open-button {
+            background-color: #555;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.8;
+            position: fixed;
+            bottom: 23px;
+            right: 28px;
+            width: 280px;
+        }
+        /* The popup form - hidden by default */
+        
+        .form-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+        /* Add styles to the form container */
+        
+        .form-container {
+            max-width: 300px;
+            padding: 10px;
+            background-color: white;
+        }
+        /* Full-width input fields */
+        
+        .form-container input[type=text],
+        .form-container input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+        }
+        /* When the inputs get focus, do something */
+        
+        .form-container input[type=text]:focus,
+        .form-container input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+        /* Set a style for the submit/login button */
+        
+        .form-container .btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+        /* Add a red background color to the cancel button */
+        
+        .form-container .cancel {
+            background-color: red;
+        }
+        /* Add some hover effects to buttons */
+        
+        .form-container .btn:hover,
+        .open-button:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+
+                    <nav class="main-nav">
+                        <a href="/" class="logo"><em>IPL Insights</em></a>
+                        <a class="btn btn-danger" role="button" style="float: right;margin:20px;" onclick="openForm()"><em>Player Analysis</em></a>
+
+                        <!---<a href="{{url_for('analysis')}}" class="btn btn-danger " role="button" style="float: right;margin:20px;"><em>Player Analysis</em></a>
+                            --->
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!--- POP UP FORM -->
+
+    <div class="form-popup" id="myForm">
+        <form action="{{ url_for('ana')}}" method="post" class="form-container">
+            <h1>Analysis</h1><br>
+            <input type="text" id="name" name="name" placeholder="Enter Player Name" required>
+            <input type="submit" value="Submit" class="btn">
+            <button type="button" id="name" name="name" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+
+    <!---Form END--->
+    <div class="main-banner" id="top">
+        <video autoplay muted loop id="bg-video">
+            <source src="{{url_for('static',filename='images/cricket.mp4')}}" type="video/mp4" />
+        </video>
+
+        <div class="video-overlay header-text">
+            <div class="caption">
+                <br><br>
+                <h6 style="font-size: 20px;">Analyze, Predict</h6>
+                <h6 style="font-size: 30px;">easy with our System</h6>
+                <br>
+                <div class="main-button scroll-to-section">
+                    <div>
+                        <img src="{{url_for('static',filename='images/rcb.png')}}" class="logos" style="margin-right: 10px; margin-left: 100px;" />
+                        <img src="{{url_for('static',filename='images/csk.png')}}" class="logos" style="margin-right: 50px; margin-left: 100px;" />
+                        <img src="{{url_for('static',filename='images/srh.png')}}" class="logos" style="margin-right: 50px; margin-left: 40px;" />
+                        <img src="{{url_for('static',filename='images/mi.png')}}" class="logos" style="margin-right: 50px; margin-left: 40px;" />
+                    </div>
+                    <br>
+                    <a href='/disPlayers/RCB' class="btn btn-danger " role="button">Royal Challengers Bangalore</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <a href='/disPlayers/CSK' class="btn btn-danger " role="button">Chennai Super Kings</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <a href='/disPlayers/SRH' class="btn btn-danger " role="button">Sunrisers Hyderabad</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <a href='/disPlayers/MI' class="btn btn-danger " role="button">Mumbai Indians</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <br>
+                    <img href='/disPlayers/DC' src="{{url_for('static',filename='images/dc.png')}}" class="logos" style="margin-right: 30px; margin-left: 40px;" />
+                    <img src="{{url_for('static',filename='images/kkr.png')}}" style="width:100px; height:130px; margin-right: 40px; margin-left: 60px;" />
+                    <img src="{{url_for('static',filename='images/rr.png')}}" class="logos" style="margin-right: 10px; margin-left: 55px;" />
+                    <img src="{{url_for('static',filename='images/pbks.png')}}" style="width:200px; height: 200px; margin-right: 50px; margin-left: 20px;" />
+                    <br>
+                    <a href='/disPlayers/DC' class="btn btn-danger " role="button">Delhi Capitals</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <a href='/disPlayers/KKR' class="btn btn-danger " role="button">Kolkata Knight Riders</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <a href='/disPlayers/RR' class="btn btn-danger " role="button">Rajastan Royals</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <a href='/disPlayers/KXIP' class="btn btn-danger " role="button">Kings XI Punjab</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="{{url_for('static', filename='js/jquery-2.1.0.min.js')}}"></script>
+
+    <script src="{{url_for('static', filename='js/popper.js')}}"></script>
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+
+    <script src="{{url_for('static', filename='js/scrollreveal.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/waypoints.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery.counterup.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/imgfix.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/mixitup.js')}}"></script>
+    <script src="{{url_for('static', filename='js/accordions.js')}}"></script>
+    <script src="{{url_for('static', filename='js/custom.js')}}"></script>
+
+</body>
+
+</html>
